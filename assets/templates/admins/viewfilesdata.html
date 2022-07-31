@@ -1,0 +1,28 @@
+{% extends 'adminbase.html' %}
+
+{% block contents %}
+
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <h2>Admin View Upload Files and Videos </h2>
+    <table border="2px">
+            <tr>
+                <th>S.No</th>
+                <th >File Name</th>
+                <th>Description</th>
+                <th>File</th>
+            </tr>
+            {% for i in object %}
+            <tr>
+            <td style="color:brown">{{i.id}}</td>
+            <td style="color:darkolivegreen">{{i.filename}}</td>
+            <td style="color:brown">{{i.description}}</td>
+            <td style="color:brown">{{i.file}}</td>
+            </tr>
+            {% endfor %}
+
+    </table>
+  </div>
+
+{% endblock %}

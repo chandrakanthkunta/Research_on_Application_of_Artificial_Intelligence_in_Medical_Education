@@ -1,0 +1,47 @@
+{% extends 'adminbase.html' %}
+
+{% block contents %}
+
+  
+  <div class="container">
+    <!-- Example row of columns -->
+    <h2>Admin View Registered Trainers </h2>
+    <table border="2px">
+            <tr>
+                <th>S.No</th>
+                <th >Name</th>
+                <th>Login Name</th>
+                <th>Email</th>
+                <th>Qualification</th>
+                <th>Mobile</th>
+                <th>Address</th>
+                <th>State</th>
+                <th>Auth Key</th>
+                <th>Status</th>
+                <th>Activate</th>
+        
+            </tr>
+            {% for i in object %}
+            <tr>
+            <td style="color:brown">{{i.id}}</td>
+            <td style="color:darkolivegreen">{{i.name}}</td>
+            <td style="color:brown">{{i.loginid}}</td>
+            <td style="color:brown">{{i.email}}</td>
+            <td style="color:brown">{{i.qualification}}</td>
+             <td style="color:brown">{{i.mobile}}</td>
+            <td style="color:brown">{{i.address}}</td>
+            <td style="color:brown">{{i.state}}</td>
+            <td style="color:brown">{{i.authkey}}</td>
+            <td style="color:brown">{{i.status}}</td>
+            
+            {% if i.status == 'waiting' %}
+            <td> <a href="/activatetrainers/?usid={{ i.id }}" >Activate</a></td>
+            {% else %}
+            <td> Activated</td>
+            {% endif %}        
+            </tr>
+            {% endfor %}
+            
+        </table>
+
+{% endblock %}

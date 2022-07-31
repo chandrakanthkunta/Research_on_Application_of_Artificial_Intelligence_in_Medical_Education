@@ -1,0 +1,38 @@
+{% extends 'trainerbase.html' %}
+
+{% block content %}
+
+  {% block content_header %}
+    <h2>file</h2>
+    <p>
+      <a href="{% url 'uploadfile' %}" >Upload file</a>
+    </p>
+  {% endblock %}
+  <table>
+    <thead>
+      <tr>
+        <th>Filename</th>
+        <th>Description</th>
+        <!--<th>File</th>-->
+        <th>Download</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+      {% for i in object %}
+        <tr>
+            <td>{{ i.filename }}</td>
+            <td>{{ i.description }}</td>
+            <td>
+            <a href="{{ i.pdf.url }}" >Download PDF</a>
+          </td>
+            <td>
+            <form method="post" action="{% url 'delete_file' file.pk %}">
+              {% csrf_token %}
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+       </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

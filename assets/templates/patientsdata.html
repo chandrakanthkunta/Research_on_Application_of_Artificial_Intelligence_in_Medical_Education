@@ -1,0 +1,30 @@
+{% extends 'trainerbase.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Medical</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+</head>
+
+<body>
+{% block contents %}
+ <h2>Upload CSV</h2>
+    <!--<form action="{% url 'uploadfile' %}" method="POST"  enctype="multipart/form-data">-->
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        <center>
+            <table>
+               <tr><td>Name<input type="text" name="name" value=""><br><br><br></td></tr>
+                <tr><td> File<input type="file" name="file" value="file"><br><br><br></td></tr>
+                <tr><td><button type="submit" >Save</button></tr></td>
+            </table>
+        </center>
+</form>
+{% endblock %}
+
+</body>
+</html>

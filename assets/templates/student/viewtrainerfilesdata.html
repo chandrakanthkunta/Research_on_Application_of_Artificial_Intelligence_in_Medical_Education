@@ -1,0 +1,31 @@
+{% extends 'studentbase.html' %}
+
+{% block contents %}
+
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <h2>View Upload Files and Videos </h2>
+    <table border="2px">
+            <tr>
+                <th>S.No</th>
+                <th >File Name</th>
+                <th>Description</th>
+                <th>File</th>
+                <th>Download</th>
+
+            </tr>
+            {% for i in object %}
+            <tr>
+            <td style="color:brown">{{i.id}}</td>
+            <td style="color:darkolivegreen">{{i.filename}}</td>
+            <td style="color:brown">{{i.description}}</td>
+            <td style="color:brown">{{i.file}}</td>
+            <td style="color:brown"><a href="{{i.file.url }}" class="btn btn-primary btn-sm" target="_blank">Download</a></td>
+            </tr>
+            {% endfor %}
+
+    </table>
+  </div>
+
+{% endblock %}

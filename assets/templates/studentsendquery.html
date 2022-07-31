@@ -1,0 +1,31 @@
+{% extends 'studentbase.html' %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Medical</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+</head>
+
+<body>
+{% block contents %}
+  <div >
+      <center><h2>Send Query to Traineer</h2></center>
+            <p><form method="POST" action="{% url 'studentsendquery' %}">
+                {% csrf_token %}
+
+      <center>
+                    <h3>Welcome {{request.session.loggedstu}}</h3>
+                    <tr><td>Student Name</td><td>{{form.name}}</td></tr>&nbsp;&nbsp;
+                    <tr><td>Email</td><td>{{form.email}}</td></tr>
+                    <br><br><br><br><textarea name="query" rows="5" cols="70" required></textarea>
+                    <br><br><tr><td><button type="submit">Send</button></td></tr>
+
+      </center>
+  </form>
+{% endblock %}
+</body>
+</html>

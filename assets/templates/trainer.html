@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Medical</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+</head>
+
+<body>
+{% block contents %}
+  <center>
+  <h2>Trainer Login</h2>
+    <p>
+        <form action="{% url 'trainerlogincheck' %}"  method="POST">
+                {% csrf_token %}
+              Trainer  <input  type="text" name="loginid" placeholder="Trainer Login Id" ><br/><br/>
+              Password <input  type="password" name="password" placeholder="Password" ><br/><br/>
+                <button  type="submit">Login</button><br/><br>
+              <a href="{% url 'trainerregistration' %}">Trainer Register</a>
+
+                  {% if messages %}
+                         {% for message in messages %}
+                            <font color='RED'> {{ message }}</font>
+                         {% endfor %}
+                  {% endif %}
+
+  </center>
+{% endblock %}
+</body>
+</html>

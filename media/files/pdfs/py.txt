@@ -1,0 +1,13 @@
+-->cd desktop
+-->django-admin startproject wedapplication
+-->python manage.py startapp crudapplication
+--> Db-->python manage.py makemigrations 
+-->python manage.py migrate
+
+
+
+TEMPLATES:-->
+https://www.html5webtemplates.co.uk/templates.html
+
+
+href="{% static 'css/style.css' %}"

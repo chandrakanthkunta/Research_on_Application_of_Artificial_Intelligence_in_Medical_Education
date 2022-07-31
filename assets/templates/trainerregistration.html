@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Medical</title>
+  <meta name="description" content="website description" />
+  <meta name="keywords" content="website keywords, website keywords" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+</head>
+
+<body>
+{% block contents %}
+  <div >
+      <center><h2><b>Trainer Registrations Here</h2></center>
+            <p><form method="POST" action="{% url 'trainerregistration' %}">
+                {% csrf_token %}
+      <center>
+          <table>
+                    <tr><td>Trainer Name</td><td>{{form.name}}</td></tr>
+                    <tr><td>Login ID</td><td>{{form.loginid}}</td></tr>
+                    <tr><td>Password</td><td>{{form.password}}</td></tr>
+                    <tr><td>Email</td><td>{{form.email}}</td></tr>
+                    <tr><td>Qualification</td><td>{{form.qualification}}</td></tr>
+                    <tr><td>Mobile</td><td>{{form.mobile}}</td></tr>
+                    <tr><td>Address</td><td>{{form.address}}</td></tr>
+                    <tr><td>State</td><td>{{form.state}}</td></tr>
+                    <tr><td></td><td>{{form.authkey}}</td></tr>
+                    <tr><td></td><td>{{form.status}}</td></tr>
+
+                    <tr><td><button type="submit">Register</button></td></tr>
+                    <center>
+                  {% if messages %}
+                         {% for message in messages %}
+                            <font color='RED'> {{ message }}</font>
+                         {% endfor %}
+                  {% endif %}
+              </center>
+                </table>
+      </center>
+  </form>
+{% endblock %}
+</body>
+</html>
